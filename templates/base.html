@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Python Project</title>
+  <link href="/static/CSS/style.css" rel="stylesheet">
+  <meta charser="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div id="wrapper">
+<body>
+<header>
+    <h1><a href ="{{ url_for('base') }}">Task Manager</a></h1>
+</header>
+  <nav>
+    <ul>
+      <li class="list"><a href="{{ url_for('index') }}">View Tasks</a></li>
+      <li class="list"><a href="{{ url_for('contact_us') }}">Contact Us</a></li>
+      <li class="list"><a href="{{ url_for('about_us') }}">About Us</a></li>
+      <li class="list"><a href="{{ url_for('random_joke') }}">Random Joke</a></li>
+    </ul>
+  </nav>
+  <main>
+    {% block main %}
+    <h2>Hello and welcome!</h2>
+    <p>this site was built with the intention to help you keep track of your daily/weekly tasks, helping you stay on top of your busy life... whilst hopefully making your day better with a joke if you are inclined to listen to one.</p>
+    {% endblock %}
+  </main>
+</body>
+<footer>Copyright &amp; Stephen Kennedy 2024</footer>
+</div>
+</html>

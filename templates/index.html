@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div id="app">
+        <body>
+        <header>
+            <h1>Tasks</h1>
+        </header>
+        <main>
+        <ul>
+            {% for todo in todos %}
+                <li>
+                    <input type="hidden" name="done" {% if todo['done'] %} checked {%endif%} onchange="this.form.submit()">
+                    <span {% if todo['done'] %} style ="text-decoration: line-through" {%endif%}>{{ todo['task'] }}{></span>}
+                    <a href="{{ url_for('check', index=loop.index0 )}}"><button type="checkbox">Done</button></a>
+                    <a href="{{ url_for('delete', index=loop.index0 )}}">❌</a>
+                </li>
+                {% else %} {# this will appear if there is no tasks set #}
+                <li class = "placeholder">Add your tasks here...</li>
+            {% endfor %}
+    <div id="todo">
+        </ul>
+           <form action="{{ url_for('add') }}" method="post">
+                <input type="text-box" name="todo">
+                <button type="submit">Add Task</button>
+           </form>
+        </main>
+    </body>
+    </div>
+    </div>
+{% endblock %}
+</html>
