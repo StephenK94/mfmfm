@@ -29,7 +29,7 @@ def random_joke():
 @app.route("/add", methods=["POST"])
 def add():
     todo = request.form["todo"]
-    todos.append({"task" : todo, "done": False})
+    todos.append({"task" : todo, "done": True})
     return redirect(url_for("index"))
     
 @app.route("/check/<int:index>")
