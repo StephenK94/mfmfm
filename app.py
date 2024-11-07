@@ -30,17 +30,17 @@ def random_joke():
 def add():
     todo = request.form["todo"]
     todos.append({"task" : todo, "done": False})
-    return redirect(url_for("add"))
+    return redirect(url_for('add'))
     
 @app.route("/check/<int:index>")
 def check(index):
     todos[index]["done"] = not todos[index]["done"]
-    return redirect(url_for("add"))
+    return redirect(url_for('add'))
 
 @app.route("/delete/<int:index>")
 def delete(index):
     del todos[index]
-    return redirect(url_for("add"))
+    return redirect(url_for('add'))
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
